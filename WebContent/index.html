@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css\custom.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39" rel="stylesheet">
+
+    <title>Dashboard</title>
+</head>
+<body class="bg-light">
+    <div class="container-fluid Cborder-top">
+        <nav class="navbar navbar-light bg-light border-bottom ">
+            <h2 class="logo text-center fas fa-graduation-cap"> Test Dash board<span></span></h2>
+        </nav>
+        <div class="container-fluid pt-2">
+            <div class="row">
+                <div class="col-2 ">
+                    <nav id="sidebar">
+                        <div class="sidebar-header">
+                            <h5 class="text-center">OPTIONS</h5>
+                        </div>
+
+                        <ul class="list-unstyled components">
+                            <li>
+                                <a onclick="executeScript('overall')" target="mainFrame" href="#">Execution Status Summary</a>
+                            </li>
+                            <li>
+                                <a onclick="executeScript('user')" href="#">Execution Status Details</a>
+                            </li>
+                            <li class="active">
+                                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Country Reports</a>
+                                <ul class="collapse list-unstyled" id="homeSubmenu">
+                                    <li>
+                                        <a onclick="executeScript('Australia')" target="mainFrame" href="#">Australia</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="executeScript('China FL')" target="mainFrame" href="#">China FL</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="executeScript('China SL')" target="mainFrame" href="#">China SL</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="executeScript('Estonia')" target="mainFrame" href="#">Estonia</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Finland FL')" target="mainFrame" href="#">Finland FL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Finland SL')" target="mainFrame" href="#">Finland SL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('France')" target="mainFrame" href="#">France</a>
+                                    </li><li>
+                                        <a onclick="executeScript('GSS')" target="mainFrame" href="#">GSS</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Hong Kong')" target="mainFrame" href="#">Hong Kong</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Germany')" target="mainFrame" href="#">Germany</a>
+                                    </li><li>
+                                        <a onclick="executeScript('India FL')" target="mainFrame" href="#">India FL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('India SL')" target="mainFrame" href="#">India SL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Italy FL')" target="mainFrame" href="#">Italy FL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Italy SL')" target="mainFrame" href="#">Italy SL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Latvia')" target="mainFrame" href="#">Latvia</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Lithuania')" target="mainFrame" href="#">Lithuania</a>
+                                    </li><li>
+                                        <a onclick="executeScript('New Zealand')" target="mainFrame" href="#">New Zealand</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Russia')" target="mainFrame" href="#">Russia</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Saudi Arabia')" target="mainFrame" href="#">Saudi Arabia</a>
+                                    </li><li>
+                                        <a onclick="executeScript('South Africa')" target="mainFrame" href="#">South Africa</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Spain')" target="mainFrame" href="#">Spain</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Sweden')" target="mainFrame" href="#">Sweden</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Turkey')" target="mainFrame" href="#">Turkey</a>
+                                    </li><li>
+                                        <a onclick="executeScript('Thailand')" target="mainFrame" href="#">Thailand</a>
+                                    </li><li>
+                                        <a onclick="executeScript('UAE')" target="mainFrame" href="#">UAE</a>
+                                    </li><li>
+                                        <a onclick="executeScript('UK')" target="mainFrame" href="#">UK</a>
+                                    </li><li>
+                                        <a onclick="executeScript('USA FL')" target="mainFrame" href="#">USA FL</a>
+                                    </li><li>
+                                        <a onclick="executeScript('USA SL')" target="mainFrame" href="#">USA SL</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-10">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Report</a></li>
+                        </ol>
+                    </nav>
+                    <div class="container-fluid">
+                        <div class="row border">
+                            <iframe id="report" src="report.html" style="width:100%; height:800px"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function executeScript(reportname) {
+        	var xmhr = new XMLHttpRequest();
+            xmhr.onreadystatechange = function() {
+                if (xmhr.readyState == 4) {
+                	document.getElementById('report').src="report.html";
+                }
+            }
+            xmhr.open('GET', 'DataRequest', true);
+            xmhr.setRequestHeader("request_type", reportname);
+            xmhr.send(null);
+        }
+    </script>
+</body>
+
+</html>
