@@ -44,17 +44,17 @@
     padding: 10px;
 }
 
-#sidebar ul li a {
+#sidebar ul li div {
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
-#sidebar ul li a:hover {
+#sidebar ul li div:hover {
     color: #7386D5;
     background: #fff;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active > div, div[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
 }
@@ -89,17 +89,6 @@ a, a:hover, a:focus {
     border-radius: 0px;
     border:0px;
     font-family: 'Quicksand', sans-serif;
-}
-
-.documents{
-    background: #E27D60;
-}
-.videos{
-    background: #85DCB0;
-    
-}
-.audios{
-    background: #c38d9E;
 }
 
 .subMenu a{

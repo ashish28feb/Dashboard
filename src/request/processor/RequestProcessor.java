@@ -1,11 +1,8 @@
 package request.processor;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Set;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,30 +21,19 @@ public class RequestProcessor extends HttpServlet {
 		try {
 			if(request.getHeader("request_type").equals("overall")) {
 				String[][] executionData = ExcelManager.readOverallData(EnvironmentVariables.EXECUTION_SUMMARY_SHEET);
-				BufferedWriter  textFile = new BufferedWriter(new FileWriter(EnvironmentVariables.REPORT_XML_LOCATION));
-				textFile.write(formatData(executionData, true));
-				textFile.flush();
-				textFile.close();
-				response.getWriter().println("Success");
+				response.getWriter().println(formatData(executionData, true));
 			} else if(request.getHeader("request_type").equals("user")) {
 				String[][] executionData = ExcelManager.readOverallData(EnvironmentVariables.EXECUTION_STATUS_SHEET);
-				BufferedWriter  textFile = new BufferedWriter(new FileWriter(EnvironmentVariables.REPORT_XML_LOCATION));
-				textFile.write(formatData(executionData, true));
-				textFile.flush();
-				textFile.close();
-				response.getWriter().println("Success");
+				response.getWriter().println(formatData(executionData, true));
 			} else {
 				String[][] executionData = ExcelManager.readCountryData(request.getHeader("request_type"));
-				BufferedWriter  textFile = new BufferedWriter(new FileWriter(EnvironmentVariables.REPORT_XML_LOCATION));
-				textFile.write(formatData(executionData, false));
-				textFile.flush();
-				textFile.close();
-				response.getWriter().println("Success");
-			}
+				response.getWriter().println(formatData(executionData, false));
+			}			
 		} catch (Throwable e) {
 			e.printStackTrace();
 			response.getWriter().println("Country Not Found Or Data doesn't exist for the country");
 		}
+		System.out.println("Request processed "+request.getHeader("request_type"));
 	}
 
 	private LinkedHashMap<String, Integer> getExecutionStatusDetails(String[][] executionData) {
@@ -60,6 +46,9 @@ public class RequestProcessor extends HttpServlet {
 			}
 		}
 		for (int rowNumber = 1; rowNumber < executionData.length; rowNumber++) {
+			if(executionData[rowNumber][executionStatusIndex].equals(EnvironmentVariables.EXCLUDED_STATUS)) {
+				continue;
+			}
 			if(executionStatus.containsKey(executionData[rowNumber][executionStatusIndex])) {
 				int newValue = executionStatus.get(executionData[rowNumber][executionStatusIndex]) + 1;
 				executionStatus.put(executionData[rowNumber][executionStatusIndex], newValue);
@@ -97,7 +86,7 @@ public class RequestProcessor extends HttpServlet {
 		}
 		String htmlOutput = "<html>";
 		htmlOutput = htmlOutput + "<head>    <link rel=\"stylesheet\" href=\"css\\custom.css\">\r\n";
-		htmlOutput = htmlOutput + "<script type=\"text/javascript\">window.onload = function() {anychart.onDocumentReady(function() {var data = [ ";
+		htmlOutput = htmlOutput + "<script type=\"text/javascript\">function createChart() {anychart.onDocumentReady(function() {var data = [ ";
 		Set<String> statusKeys = executionStatusDetails.keySet();
 		boolean firstKey = true;
 		for (String statusKey : statusKeys) {

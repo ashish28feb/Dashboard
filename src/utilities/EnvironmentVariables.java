@@ -3,11 +3,12 @@ package utilities;
 import java.util.ArrayList;
 
 public class EnvironmentVariables {
-	public static final String EXCEL_DATA_FILE_LOCATION = "C:\\Users\\ui171010\\eclipse-workspace\\automation-dashboard\\src\\resources\\Data.xlsx";
-	public static final String REPORT_XML_LOCATION = "C:\\Users\\ui171010\\eclipse-workspace\\automation-dashboard\\WebContent\\report.html";
+	public static final String EXCEL_DATA_FILE_LOCATION = "C:\\Users\\ui171010\\Desktop\\eclipse-workspace\\automation-dashboard\\src\\resources\\Data.xlsx";
 	public static final String EXECUTION_STATUS = "Execution Status";
 	public static final String EXECUTION_SUMMARY_SHEET = "Execution Status Summary";
 	public static final String EXECUTION_STATUS_SHEET = "Execution Status Details";
+	public static final String EXCLUDED_STATUS = "OOS";
+
 
 	public static final ArrayList<String> ALLOWED_COLUMN_NAMES = new ArrayList<String>();
 	public static final ArrayList<String> OPTIONAL_COLUMN_NAMES = new ArrayList<String>();
