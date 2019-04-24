@@ -35,12 +35,12 @@
                             <li>
                                 <div onclick="executeScript('overall')">Execution Status Summary</div>
                             </li>
-<!--                             <li> -->
-<!--                                 <div onclick="executeScript('user')" href="">Execution Status Details</div> -->
-<!--                             </li> -->
+                            <li> 
+                                 <div onclick="executeScript('user')" href="">Execution Status Details</div> 
+                           </li> 
                             <li class="active">
                                 <div href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Country Reports</div>
-                                <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <ul class="list-unstyled" id="homeSubmenu">
                                     <li>
                                         <div onclick="executeScript('Australia')">Australia</div>
                                     </li><li>
@@ -129,15 +129,17 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript">
         function executeScript(reportname) {
+        	var setWaiting = document.getElementById('report');
+			setWaiting.src = "waiting.html";
         	var xmhr = new XMLHttpRequest();
             xmhr.onreadystatechange = function() {
-                if (xmhr.readyState == 4) {
+                if (xmhr.readyState == 4) {			
                 	var destinationFrame = document.getElementById('report');
                 	var destinationDocument = destinationFrame.contentDocument || destinationFrame.contentWindow.document;
                 	destinationDocument.write(xmhr.response);
                 	destinationDocument.close();
-                	var destinationFrame2 = document.getElementById('report');
-                	destinationFrame2.contentWindow.createChart();
+                	var destinationFrameGenerateCharat = document.getElementById('report');
+                	destinationFrameGenerateCharat.contentWindow.createChart();
                 }
             }
             xmhr.open('GET', 'DataRequest', true);
