@@ -13,11 +13,12 @@ public class ExcelManager {
 	public static Integer TOTAL_NUMBER_SCRIPTS = 0;
 
 	public static void main(String[] args) throws Throwable {
-
+		System.out.println("None");
 	}
 
 	public static String[][] readCountryData(String countryName) throws Throwable {
 		String[][] executionData = null;
+		System.out.println("Data Location : "+EnvironmentVariables.EXCEL_DATA_FILE_LOCATION);
 		XSSFWorkbook srcBook = new XSSFWorkbook(EnvironmentVariables.EXCEL_DATA_FILE_LOCATION);
 		try {
 			int numberOfSheets = srcBook.getNumberOfSheets();
@@ -68,6 +69,7 @@ public class ExcelManager {
 	public static String[][] readOverallData(String sheetName) throws Throwable {
 		String[][] executionData = null;
 		String[][] reportData = null;
+		System.out.println("Data Location : "+EnvironmentVariables.EXCEL_DATA_FILE_LOCATION);
 		XSSFWorkbook srcBook = new XSSFWorkbook(EnvironmentVariables.EXCEL_DATA_FILE_LOCATION);
 		try {
 			int numberOfSheets = srcBook.getNumberOfSheets();

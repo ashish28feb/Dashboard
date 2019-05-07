@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript">
+        function createChart() {
+            anychart.onDocumentReady(function() {
+                var data = [{
+                    x: "Not Started",
+                    value: 55
+                }, {
+                    x: "Failed",
+                    value: 22
+                }, {
+                    x: "Passed",
+                    value: 1511
+                }];
+                var chart = anychart.pie();
+                chart.title("Execution Status");
+                chart.data(data);
+                chart.container('container');
+                chart.draw();
+            });
+        }
+    </script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 div {

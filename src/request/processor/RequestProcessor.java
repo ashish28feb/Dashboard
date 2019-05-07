@@ -91,10 +91,22 @@ public class RequestProcessor extends HttpServlet {
 		boolean firstKey = true;
 		for (String statusKey : statusKeys) {
 			if(firstKey) {
-				htmlOutput = htmlOutput + "{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+"}";
+				if(statusKey.equals(EnvironmentVariables.PASSED_STATUS)) {
+					htmlOutput = htmlOutput + "{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+", normal:  {fill: \"#00FF00\"}}";
+				} else if(statusKey.equals(EnvironmentVariables.FAILED_STATUS)){
+					htmlOutput = htmlOutput + "{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+", normal:  {fill: \"#FF0000\"}}";
+				}else {
+					htmlOutput = htmlOutput + "{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+"}";
+				}
 				firstKey = false;
 			} else {
-				htmlOutput = htmlOutput + ",{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+"}";
+				if(statusKey.equals(EnvironmentVariables.PASSED_STATUS)) {
+					htmlOutput = htmlOutput + ",{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+", normal:  {fill: \"#00FF00\"}}";
+				} else if(statusKey.equals(EnvironmentVariables.FAILED_STATUS)){
+					htmlOutput = htmlOutput + ",{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+", normal:  {fill: \"#FF0000\"}}";
+				}else {
+					htmlOutput = htmlOutput + ",{x : \""+statusKey+"\",value : "+executionStatusDetails.get(statusKey)+"}";
+				}
 			}
 		}
 		htmlOutput = htmlOutput + "];";
